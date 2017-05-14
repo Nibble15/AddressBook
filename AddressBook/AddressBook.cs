@@ -1,4 +1,5 @@
-﻿using System;
+﻿//all code choices include what I've learned up to this point
+using System;
 
 namespace AddressBook {
     class AddressBook {
@@ -9,7 +10,7 @@ namespace AddressBook {
             contacts = new Contact[2]; ;
         }
         
-        public bool AddEntry(string name, string address) {
+        public bool AddEntry(string name, string address) { 
             if (!ContainsEntry(name)) {
                 name = FormatContact(name);
                 address = FormatContact(address);
@@ -30,10 +31,7 @@ namespace AddressBook {
             }
             return false;
         }
-
-        // REMINDER: If you use this method to evaluate true after a change make sure to call it as 
-        // !UpdateContact(entryToUpdate, originalName, userUpdatedEntry) 
-        // Can also be: UpdateContact(entryToUpdate, originalName, userUpdatedEntry) == -1
+        
         public bool UpdateContact(string originalName) {
             Console.Write("Are you sure you would you like to update the Contact? -- Type 'Y' or 'N': ");
             string userResponse = Console.ReadLine().ToLower();
