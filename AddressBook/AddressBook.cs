@@ -39,7 +39,7 @@ namespace AddressBook {
                 Console.Write($"Would you like to update {originalName}'s name or address? TYPE - 'Name' for name and 'Address' for address: ");
                 string contactToUpdate = Console.ReadLine().ToLower();
 
-                Console.Write($"Please enter changes to the {contactToUpdate} here: ");//, (entryToUpdate == "address") ? "address" : "name"
+                Console.Write($"Please enter changes to the {contactToUpdate} here: ");
                 string updatedContact = Console.ReadLine().Trim();
                 updatedContact = FormatContact(updatedContact);
 
