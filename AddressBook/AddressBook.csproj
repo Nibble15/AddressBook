@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="AddressBook.cs" />
     <Compile Include="Contact.cs" />
+    <Compile Include="ContactRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
