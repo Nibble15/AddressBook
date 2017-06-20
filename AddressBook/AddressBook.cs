@@ -146,6 +146,9 @@ namespace AddressBook {
         /// </summary>
         /// <returns>The list of contacts in order by Name</returns>
         public IOrderedEnumerable<Contact> ViewContactsList() => _dataBase.OrderBy(c => c.Name);
+
+
+
         //{
         //    string contactList = String.Empty;
         //    foreach (Contact contact in _dataBase) {
