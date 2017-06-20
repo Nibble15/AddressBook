@@ -17,18 +17,15 @@ namespace AddressBook {
             name = FormatContact(name.Trim());
             address = FormatContact(address.Trim());
             if (_dataBase.Any(c => c.Name == name)) {
-                //Console.WriteLine($"({name}) already exists in Address Book!");
-                //UpdateContact(name);
                 return false;
             }
             Contact AddContact = new Contact(name, address);
             _dataBase.Add(AddContact);
-            //Console.WriteLine("Address Book updated. Name: {0} -- Address: {1} has been added!", name, address);
             return true;
         }
 
         /// <summary>
-        /// Returns true if a value is passed in by the user.
+        /// Returns true if a value is passed in by the user. If null false is returned.
         /// </summary>
         /// <param name="response"></param>
         /// <returns></returns>
@@ -40,7 +37,7 @@ namespace AddressBook {
         public Contact UpdateContact(string originalName, string propertyToUpdate, string updatedProperty) {
             updatedProperty = FormatContact(updatedProperty);
             int index = GetEntryIndex(originalName);
-            Console.WriteLine(index);
+           // Console.WriteLine(index);
             if (index >= 0) {
                 switch (propertyToUpdate) {
                     case "name":
@@ -56,32 +53,6 @@ namespace AddressBook {
             }
             return null;
         }
-        
-        //public bool UpdateContact(string originalName) {
-        //    Console.Write("Are you sure you would you like to update the Contact? -- Type 'Y' or 'N': ");
-        //    string userResponse = Console.ReadLine().ToLower();
-        //    if (userResponse == "y") {
-        //        Console.Write($"Would you like to update {originalName}'s name or address? TYPE - 'Name' for name and 'Address' for address: ");
-        //        string contactToUpdate = Console.ReadLine().ToLower();
-
-        //        Console.Write($"Please enter changes to the {contactToUpdate} here: ");
-        //        string updatedContact = Console.ReadLine().Trim();
-        //        updatedContact = FormatContact(updatedContact);
-
-        //        int index = GetEntryIndex(originalName);
-        //        switch(contactToUpdate) {
-        //            case "name":
-        //                _dataBase[index].Name = updatedContact;
-        //                Console.WriteLine($"Contact {originalName} updated to {updatedContact}");
-        //                return true;
-        //            case "address":
-        //                _dataBase[index].Address = updatedContact;
-        //                Console.WriteLine($"Contact {originalName}'s {contactToUpdate} updated to {updatedContact}");
-        //                return true;
-        //        }
-        //    }
-        //    return false;
-        //}
 
         /// <summary>
         /// Formats a Contact 
@@ -146,19 +117,6 @@ namespace AddressBook {
         /// </summary>
         /// <returns>The list of contacts in order by Name</returns>
         public IOrderedEnumerable<Contact> ViewContactsList() => _dataBase.OrderBy(c => c.Name);
-
-
-
-        //{
-        //    string contactList = String.Empty;
-        //    foreach (Contact contact in _dataBase) {
-        //        contactList += String.Format("Name: {0} -- Address: {1} \n", contact.Name, contact.Address);
-        //    }
-
-
-        //    return (contactList != String.Empty) ? contactList : "Your Address Book is empty.";
-        //}
-
 
         public void Menu() {
             Console.WriteLine("TYPE:");
