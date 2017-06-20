@@ -30,10 +30,6 @@ namespace AddressBook {
         /// <param name="response"></param>
         /// <returns></returns>
         public bool UpdateContact(string response) => (response != null) ? true : false;
-
-        //TODO: switch AddEntry to just return a bool if the name exists and use Main to print 
-        //that it exists and ask to update the contact with the above UpdateContact. if the response is "y"
-        //then run the below UpdateContact method
         public Contact UpdateContact(string originalName, string propertyToUpdate, string updatedProperty) {
             updatedProperty = FormatContact(updatedProperty);
             int index = GetEntryIndex(originalName);
@@ -42,11 +38,9 @@ namespace AddressBook {
                 switch (propertyToUpdate) {
                     case "name":
                         _dataBase[index].Name = updatedProperty;
-                        //Console.WriteLine($"Contact {originalName}'s {propertyToUpdate} updated to {updatedProperty}");
                         break;
                     case "address":
                         _dataBase[index].Address = updatedProperty;
-                        //Console.WriteLine($"Contact {originalName}'s {propertyToUpdate} updated to {updatedProperty}");
                         break;
                 }
                 return _dataBase[index];
@@ -80,10 +74,6 @@ namespace AddressBook {
         /// <param name="name"></param>
         /// <returns>an integer</returns>
         private int GetEntryIndex(string name) {
-            //for (int i = 0; i < _dataBase.Count; i++) {
-            //    if (_dataBase[i] != null && _dataBase[i].Name.ToLower() == name.ToLower())
-            //        return i;
-            //}
             var index = _dataBase.FindIndex(c => c.Name.ToLower().Contains(name.ToLower()));
             if (index >= 0) {
                 return index;

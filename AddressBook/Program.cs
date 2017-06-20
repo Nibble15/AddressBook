@@ -75,8 +75,7 @@ namespace AddressBook {
                             else {
                                 Console.WriteLine("You have several contacts matching your search");
                                 foreach (var contact in search) {
-                                    Console.WriteLine($"Name: {contact.Name}");
-                                    Console.WriteLine($"Address: {contact.Address}");
+                                    Console.WriteLine(contact);
                                 }
                                 Console.Write("Would you like to update one of these Contacts or add a new one? ");
                                 var response = Console.ReadLine();
@@ -93,15 +92,16 @@ namespace AddressBook {
                         name = Console.ReadLine();
                         var contacts = addressBook.Search(name);
                         foreach (var contact in contacts) {
-                            Console.WriteLine(contact.Name);
+                            Console.WriteLine(contact);
                         }
                         break;
                     }
                     if(userInput == "view") {
                         var contactsList = addressBook.ViewContactsList();
                         foreach (var contact in contactsList) {
-                            Console.WriteLine($"Name: {contact.Name}");
-                            Console.WriteLine($"Address: {contact.Address}");
+                            //Console.WriteLine($"Name: {contact.Name}");
+                            //Console.WriteLine($"Address: {contact.Address}");
+                            Console.WriteLine(contact);
                         }
                         break;
                     }

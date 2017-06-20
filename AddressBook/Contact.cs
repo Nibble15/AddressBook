@@ -7,6 +7,8 @@
             Name = name;
             Address = address;
         }
-        
+        public override string ToString() {
+            return $"Name: {Name}\nAddress: {Address}\n";
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBook {
     class ContactRepository {
-        //NOTE: workaround for not having a database to pull items from
+        //NOTE: workaround for not having database to persist contact data to
 
         public List<Contact> LoadContacts() {
                 return new List<Contact> {
@@ -30,7 +30,6 @@ namespace AddressBook {
                     new Contact("Zoe Johnson", "345 Main Street Boston MN 98564")
             };
         } 
-
         
     }
 }
